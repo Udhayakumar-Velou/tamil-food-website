@@ -116,7 +116,12 @@
     height: 25px;
 }
 :where(.css-dev-only-do-not-override-dbp7pc).ant-carousel .slick-dots li.slick-active::after{
-    display: none;
+    display: none !important;
+}
+:where(.css-dbp7pc).ant-carousel .slick-dots li::after {
+    :where(.css-dbp7pc).ant-carousel .slick-dots li::after {
+        display: none !important;
+    }
 }
 
 .testimonials-collage {
