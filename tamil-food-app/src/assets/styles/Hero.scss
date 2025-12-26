@@ -239,12 +239,15 @@ $yellow-color: #FFD40D;
     height: 25px;
 }
 :where(.css-dev-only-do-not-override-dbp7pc).ant-carousel .slick-dots li.slick-active::after{
-    display: none  !important;
+  display: none  !important;
 }
 :where(.css-dbp7pc).ant-carousel .slick-dots li::after {
     :where(.css-dbp7pc).ant-carousel .slick-dots li::after {
-        display: none !important;
+      display: none !important;
     }
+}
+:where(.css-dbp7pc).ant-carousel .slick-dots li.slick-active::after {
+  display: none !important;
 }
 
 .hero-section{

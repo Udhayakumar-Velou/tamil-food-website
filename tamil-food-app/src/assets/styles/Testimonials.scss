@@ -123,6 +123,9 @@
         display: none !important;
     }
 }
+:where(.css-dbp7pc).ant-carousel .slick-dots li.slick-active::after {
+  display: none !important;
+}
 
 .testimonials-collage {
     position: relative;
