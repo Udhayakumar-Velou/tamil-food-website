@@ -6,23 +6,14 @@ const https = require('https');
 
 const app = express();
 
-/* ===============================
-   MIDDLEWARE
-================================ */
 app.use(cors());
 app.use(express.json());
 
-/* ===============================
-   MONGODB CONNECTION
-================================ */
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log('✅ Connected to MongoDB'))
   .catch((err) => console.error('❌ MongoDB Connection Error:', err));
 
-/* ===============================
-   SCHEMA & MODEL
-================================ */
 const reservationSchema = new mongoose.Schema({
   fullName: String,
   phone: String,
@@ -34,9 +25,6 @@ const reservationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model('Reservation', reservationSchema);
 
-/* ===============================
-   WHATSAPP FUNCTION (FIXED)
-================================ */
 function sendWhatsApp(reservation) {
   const { fullName, phone, date, time, guests } = reservation;
 
@@ -65,49 +53,10 @@ function sendWhatsApp(reservation) {
     });
 }
 
-/* ===============================
-   API ROUTE
-================================ */
-// app.post('/api/reservation', async (req, res) => {
-//   try {
-//     const { fullName, phone, date, time, guests } = req.body;
-
-//     console.log('📩 Received:', fullName);
-
-//     const newReservation = new Reservation({
-//       fullName,
-//       phone,
-//       date,
-//       time,
-//       guests
-//     });
-
-//     await newReservation.save();
-//     console.log('📝 Saved to DB');
-
-//     sendWhatsApp({ fullName, phone, date, time, guests });
-
-//     res.status(201).json({
-//       success: true,
-//       message: 'Reservation saved & WhatsApp sent'
-//     });
-//   } catch (error) {
-//     console.error('❌ Server Error:', error);
-//     res.status(500).json({
-//       success: false,
-//       message: 'Internal Server Error'
-//     });
-//   }
-// });
-
-
-//get reservation data 
-
 app.post('/api/reservation', async (req, res) => {
   try {
     const { fullName, phone, date, time, guests } = req.body;
 
-    // Convert HH:mm → minutes
     const toMinutes = (t) => {
       const [h, m] = t.split(':').map(Number);
       return h * 60 + m;
@@ -119,7 +68,7 @@ app.post('/api/reservation', async (req, res) => {
 
     const conflict = existingReservations.some((r) => {
       const existingTime = toMinutes(r.time);
-      return Math.abs(existingTime - requestedTime) < 60; // 1 hour block
+      return Math.abs(existingTime - requestedTime) < 60; 
     });
 
     if (conflict) {
@@ -164,9 +113,6 @@ app.get('/api/reservations', async (req, res) => {
   }
 });
 
-/* ===============================
-   START SERVER
-================================ */
 const PORT = 5001;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
