@@ -1,0 +1,150 @@
+@use './resolution.scss' as *;
+
+.reservation-section {
+    padding: 60px 0; 
+    background-color: #fff;
+
+    @include mob-ver {
+        padding: 40px 0;
+    }
+    .reservation-form-col input, .reservation-form-col .ant-picker {
+        background: white;
+    }
+}
+
+.reservation-header {
+    text-align: center;
+    margin-bottom: 3rem; 
+
+    h1 {
+        font-weight: bold !important;
+        margin-bottom: 10px !important;
+    }
+
+    .separator {
+        width: 100px;
+        height: 4px;
+        background-color: #FFD700;
+        margin: 0 auto;
+        border-radius: 2px;
+    }
+}
+.separator {
+    width: 120px;
+    height: 4px;
+    background-color: #FFD700;
+    border-radius: 2px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 577px) {
+    .separator{
+        margin-top: 5px;
+        width: 100%;
+    }
+}
+
+.reservation-card {
+    background-color: #ff2e63;
+    border-radius: 30px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='6' stroke-linecap='round'%3E%3Cpath d='M80 120c120-80 200 60 320 20'/%3E%3Cpath d='M420 100c-40 100 100 160 40 260'/%3E%3Cpath d='M100 300c160-60 260 120 420 40'/%3E%3Cpath d='M180 420c60-100 200-60 260-140'/%3E%3Cpath d='M320 480c-80-40-140 20-220-40'/%3E%3Cpath d='M480 360c-120-20-160-140-60-220'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 520px 520px;
+    border-radius: 30px;
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(255, 46, 99, 0.2);
+
+    @include mob-ver {
+        padding: 30px 20px;
+    }
+}
+
+.reservation-text-col {
+    color: white;
+
+    h2 {
+        color: white !important;
+        font-weight: bold !important;
+        text-transform: uppercase;
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+
+        @include mob-ver {
+            font-size: 2rem !important;
+            text-align: center;
+        }
+    }
+
+    .sub-text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.1rem;
+        
+        @include mob-ver {
+            display: block;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    }
+}
+
+.reservation-form-col {
+    input, 
+    .ant-picker {
+        border-radius: 8px !important;
+        width: 100%;
+    }
+
+    .submit-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+
+    @include mob-ver {
+        justify-content: center;
+    }
+    }
+
+    .submit-btn-wrapper {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 6px;      
+        left: 6px;     
+        width: 100%;
+        height: 100%;
+
+        border: 3px solid #ffd84d;
+        border-radius: 20px;
+
+        z-index: 0;
+    }
+    }
+
+    .submit-btn {
+        position: relative;
+        z-index: 1;
+        background-color: #ffd84d !important;
+        color: #000 !important;
+        font-weight: 800 !important;
+        font-size: 20px !important;
+        height: 56px !important;
+        padding: 0 52px !important;
+        border-radius: 20px !important;
+        border: none !important;
+        box-shadow: none !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+
+        &:hover,
+        &:focus {
+            background-color: #ffd84d !important;
+            color: #000 !important;
+        }
+    }
+}

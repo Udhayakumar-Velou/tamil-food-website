@@ -1,0 +1,133 @@
+@use './resolution.scss' as *;
+
+.about-us-section {
+    padding: 80px 0;
+    background-color: #fff;
+
+    @include mob-ver {
+        padding: 40px 0;
+    }
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 800px;
+    margin: 0 auto 60px;
+
+    .sub-title {
+        color: #FF2E63 !important;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-weight: 800 !important;
+        font-size: 3rem !important;
+        margin-top: 0 !important;
+        color: #0F172B !important;
+
+        @include mob-ver {
+            font-size: 2.2rem !important;
+        }
+    }
+
+    .separator {
+        width: 80px;
+        height: 4px;
+        background-color: #FFD700;
+        margin: 10px auto 25px;
+        border-radius: 2px;
+    }
+
+    .specialty-title {
+        font-weight: normal !important;
+        color: #555 !important;
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .description {
+        font-size: 1.1rem;
+        color: #666;
+        line-height: 1.8;
+    }
+}
+
+.chefs-row {
+    margin-top: 80px;
+}
+
+.chef-card-wrapper {
+    position: relative;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; 
+    margin-bottom: 30px;
+
+    .chef-image {
+        position: absolute;
+        bottom: 130px; 
+        left: 50%;
+        transform: translateX(-50%);
+        width: 260px; 
+        height: auto;
+        z-index: 1;
+        max-width: 90%; 
+    }
+
+    .chef-info-circle {
+        position: relative;
+        z-index: 2;
+        width: 300px;
+        height: 300px;
+        background-color: #fff;
+        border-radius: 50%;
+        border: 1px solid #eee;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 90px; 
+        margin-bottom: -20px;
+
+        .chef-role {
+            color: #FF2E63 !important;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        h3 {
+            margin: 0 0 10px 0 !important;
+            font-weight: 800 !important;
+            font-size: 1.4rem !important;
+        }
+
+        .decor-dots {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            
+            div {
+                width: 8px;
+                height: 8px;
+                background-color: #F3F4F6;
+                border-radius: 50%;
+            }
+        }
+
+        .signature-img {
+            width: 80px;
+            opacity: 0.6;
+        }
+    }
+}

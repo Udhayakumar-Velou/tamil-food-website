@@ -1,0 +1,134 @@
+@use './resolution.scss' as *;
+
+.recommended-dishes-section {
+    padding: 80px 0 120px 0; 
+    background-color: #fff;
+
+    @include mob-ver {
+        padding: 40px 0;
+    }
+}
+
+.recommended-header {
+    margin-bottom: 3rem;
+    text-align: left; 
+
+    .sub-title {
+        color: #FF2E63 !important;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 800;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    h2 {
+        margin-top: 0 !important;
+        font-weight: 800 !important;
+        color: #1A1A1A !important;
+        font-size: 32px !important;
+        
+        @include mob-ver {
+            font-size: 26px !important; 
+        }
+    }
+}
+
+.dishes-row {
+    align-items: flex-start; 
+    justify-content: center;
+}
+
+.dish-card {
+  position: relative;
+  height: 420px;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 28px;
+  overflow: hidden;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  transition: transform 0.3s ease;
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25); 
+    z-index: 0;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 12px;
+    border: 3.5px solid #FFD40D;
+    border-radius: 22px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .dish-label {
+    position: absolute;
+    bottom: 12px;
+    left: 18px;
+    right: 18px;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: #000;
+    background-color: #ffd700;
+    border-radius: 20px;
+    z-index: 2; 
+    text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+}
+
+@media (min-width: 992px) {
+    .ant-col:nth-child(2) {
+        .dish-card {
+            transform: translateY(60px); 
+        }
+    }
+}
+
+@include md {
+    .recommended-dishes-section {
+        padding-bottom: 60px; 
+    }
+
+    .ant-col:nth-child(2) .dish-card {
+        transform: none !important;
+        margin-top: 0;
+    }
+    
+    .dish-card {
+        margin-bottom: 30px; 
+    }
+}
+
+@include mob-ver {
+    .dish-card {
+        height: 380px; 
+        max-width: 100%; 
+        margin-bottom: 20px;
+    }
+    
+    .ant-col:nth-child(2) .dish-card {
+        transform: none !important;
+    }
+}
+@media (max-width: 900px) {
+     .container { max-width: 800px!important }
+     
+}

@@ -1,0 +1,30 @@
+// Breakpoints
+$screen-lg: 1200px;
+$screen-md: 992px;
+$screen-tab: 768px;
+$screen-mob: 576px;
+
+// Mixins
+@mixin lg {
+  @media (max-width: #{$screen-lg}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (max-width: #{$screen-tab}) {
+    @content;
+  }
+}
+
+@mixin mob-ver {
+  @media (max-width: #{$screen-mob}) {
+    @content;
+  }
+}
