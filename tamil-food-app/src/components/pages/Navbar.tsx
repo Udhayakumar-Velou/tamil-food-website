@@ -1,5 +1,4 @@
-import { Layout, Button, Menu } from 'antd';
-import { ShoppingCartOutlined } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import '../../assets/styles/Navbar.scss';

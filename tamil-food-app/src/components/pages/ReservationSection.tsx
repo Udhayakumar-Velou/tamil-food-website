@@ -84,45 +84,45 @@ const ReservationSection = () => {
     return [];
   };
 
-  const disabledTime = () => {
-  if (!selectedDate) return {};
+//   const disabledTime = () => {
+//   if (!selectedDate) return {};
 
-  const openingHours = getOpeningHours(selectedDate);
-  const bookedMinutes = bookedTimes.map(toMinutes);
+//   const openingHours = getOpeningHours(selectedDate);
+//   const bookedMinutes = bookedTimes.map(toMinutes);
 
-  const isWithinOpening = (minutes: number) =>
-    openingHours.some(({ start, end }) => {
-      return (
-        minutes >= toMinutes(start) &&
-        minutes <= toMinutes(end)
-      );
-  });
+//   const isWithinOpening = (minutes: number) =>
+//     openingHours.some(({ start, end }) => {
+//       return (
+//         minutes >= toMinutes(start) &&
+//         minutes <= toMinutes(end)
+//       );
+//   });
 
-  return {
-    disabledHours: () => {
-      const hours: number[] = [];
-      for (let h = 0; h < 24; h++) {
-        if (!isWithinOpening(h * 60)) hours.push(h);
-      }
-      return hours;
-    },
+//   return {
+//     disabledHours: () => {
+//       const hours: number[] = [];
+//       for (let h = 0; h < 24; h++) {
+//         if (!isWithinOpening(h * 60)) hours.push(h);
+//       }
+//       return hours;
+//     },
 
-    disabledMinutes: (hour: number) => {
-      const minutes: number[] = [];
-      for (let m = 0; m < 60; m += 15) {
-        const current = hour * 60 + m;
+//     disabledMinutes: (hour: number) => {
+//       const minutes: number[] = [];
+//       for (let m = 0; m < 60; m += 15) {
+//         const current = hour * 60 + m;
 
-        const outsideOpening = !isWithinOpening(current);
-        const conflict = bookedMinutes.some(
-          (bm) => Math.abs(bm - current) < 60
-        );
+//         const outsideOpening = !isWithinOpening(current);
+//         const conflict = bookedMinutes.some(
+//           (bm) => Math.abs(bm - current) < 60
+//         );
 
-        if (outsideOpening || conflict) minutes.push(m);
-      }
-      return minutes;
-    }
-  };
-};
+//         if (outsideOpening || conflict) minutes.push(m);
+//       }
+//       return minutes;
+//     }
+//   };
+// };
 
   return (
     <div className="reservation-section">
