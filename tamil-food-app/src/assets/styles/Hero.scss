@@ -26,12 +26,27 @@ $yellow-color: #FFD40D;
         background: white !important;
         opacity: 0.5;
         transition: all 0.3s ease;
-        padding: 0;
+        order: none !important;      // Removes gray/white border
+        outline: none !important;     // Removes focus ring
+        box-shadow: none !important;  // Removes glow
+        padding: 0 !important;
+        // Sometimes text-decoration appears if the browser thinks it's a link
+        text-decoration: none !important; 
+        // Hides any default text inside the button (like numbers 1, 2, 3)
+        font-size: 0 !important;      
+        color: transparent !important;
+        &::before {
+          display: none !important;
+        }
       }
+
       &.slick-active button {
         background: $yellow-color !important;
         opacity: 1;
         transform: scale(1.4);
+        // Double check no border exists on active state
+        border: none !important; 
+        outline: none !important;
       }
     }
   }
