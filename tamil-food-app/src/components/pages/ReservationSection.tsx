@@ -8,8 +8,8 @@ const { Title, Text } = Typography;
 const ReservationSection = () => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
-  const [selectedDate, setSelectedDate] = useState<any>(null);
+  // const [bookedTimes, setBookedTimes] = useState<string[]>([]);
+  // const [selectedDate, setSelectedDate] = useState<any>(null);
 
   const onFinish = async (values: any) => {
     setLoading(true); 
@@ -56,33 +56,33 @@ const ReservationSection = () => {
           `http://localhost:5001/api/reservations?date=${date}`
         );
         const data = await res.json();
-        setBookedTimes(data.map((r: any) => r.time));
+        // setBookedTimes(data.map((r: any) => r.time));
       } catch (e) {
         console.error('Failed to fetch reservations');
       }
     };
 
-    const toMinutes = (t: string) => {
-    const [h, m] = t.split(':').map(Number);
-    return h * 60 + m;
-  };
+  //   const toMinutes = (t: string) => {
+  //   const [h, m] = t.split(':').map(Number);
+  //   return h * 60 + m;
+  // };
 
-  const getOpeningHours = (date: any) => {
-    const day = date.day(); 
+  // const getOpeningHours = (date: any) => {
+  //   const day = date.day(); 
 
-    if (day >= 1 && day <= 5) {
-      return [
-        { start: '12:00', end: '13:30' },
-        { start: '18:00', end: '21:00' },
-      ];
-    }
+  //   if (day >= 1 && day <= 5) {
+  //     return [
+  //       { start: '12:00', end: '13:30' },
+  //       { start: '18:00', end: '21:00' },
+  //     ];
+  //   }
 
-    if (day === 6) {
-      return [{ start: '18:00', end: '21:00' }];
-    }
+  //   if (day === 6) {
+  //     return [{ start: '18:00', end: '21:00' }];
+  //   }
 
-    return [];
-  };
+  //   return [];
+  // };
 
 //   const disabledTime = () => {
 //   if (!selectedDate) return {};
@@ -174,7 +174,7 @@ const ReservationSection = () => {
                         (current < dayjs().startOf('day') || current.day() === 0)
                       }
                       onChange={(date) => {
-                        setSelectedDate(date);
+                        // setSelectedDate(date);
                         if (date) {
                           fetchBookedTimes(date.format('YYYY-MM-DD'));
                         }
