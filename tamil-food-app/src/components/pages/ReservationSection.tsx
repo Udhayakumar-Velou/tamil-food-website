@@ -50,17 +50,17 @@ const ReservationSection = () => {
   };
 
 
-  const fetchBookedTimes = async (date: string) => {
-    try {
-      const res = await fetch(
-          `http://localhost:5001/api/reservations?date=${date}`
-        );
-        const data = await res.json();
-        // setBookedTimes(data.map((r: any) => r.time));
-      } catch (e) {
-        console.error('Failed to fetch reservations');
-      }
-    };
+  // const fetchBookedTimes = async (date: string) => {
+  //   try {
+  //     const res = await fetch(
+  //         `http://localhost:5001/api/reservations?date=${date}`
+  //       );
+  //       // const data = await res.json();
+  //       // setBookedTimes(data.map((r: any) => r.time));
+  //     } catch (e) {
+  //       console.error('Failed to fetch reservations');
+  //     }
+  //   };
 
   //   const toMinutes = (t: string) => {
   //   const [h, m] = t.split(':').map(Number);
@@ -175,9 +175,9 @@ const ReservationSection = () => {
                       }
                       onChange={(date) => {
                         // setSelectedDate(date);
-                        if (date) {
-                          fetchBookedTimes(date.format('YYYY-MM-DD'));
-                        }
+                        // if (date) {
+                        //   fetchBookedTimes(date.format('YYYY-MM-DD'));
+                        // }
                         form.setFieldsValue({ time: null });
                       }}
                     />
