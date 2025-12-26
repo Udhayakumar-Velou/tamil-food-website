@@ -22,8 +22,11 @@ const ReservationSection = () => {
 
     console.log('Sending Reservation:', formattedData);
 
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+
     try {
-      const response = await fetch('http://localhost:5001/api/reservation', {
+    // 2. Use that variable in your fetch call (Note the backticks ` `)
+    const response = await fetch(`${API_URL}/api/reservation`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
