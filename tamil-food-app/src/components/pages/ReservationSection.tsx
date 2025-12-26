@@ -173,7 +173,7 @@ const ReservationSection = () => {
                         current &&
                         (current < dayjs().startOf('day') || current.day() === 0)
                       }
-                      onChange={(date) => {
+                      onChange={() => {
                         // setSelectedDate(date);
                         // if (date) {
                         //   fetchBookedTimes(date.format('YYYY-MM-DD'));
