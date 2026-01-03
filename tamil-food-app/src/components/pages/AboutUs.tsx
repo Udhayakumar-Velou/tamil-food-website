@@ -5,7 +5,7 @@ import '../../assets/styles/AboutUs.scss';
 const { Title, Paragraph, Text } = Typography;
 
 const AboutUs = () => {
-  
+  console.log("testing")
   return (
     <div className="about-us-section">
       <div className="container">
