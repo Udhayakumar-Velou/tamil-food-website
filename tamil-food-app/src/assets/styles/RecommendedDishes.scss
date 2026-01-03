@@ -98,6 +98,9 @@
     .ant-col:nth-child(2) {
         .dish-card {
             transform: translateY(60px); 
+            &:hover {
+                transform: scale(1);
+            }
         }
     }
 }
